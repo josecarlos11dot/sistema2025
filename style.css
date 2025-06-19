@@ -1,0 +1,305 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Página y container */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Botones para mostrar filtros */
+.btn-filtros-toggle {
+  margin-bottom: 10px;
+}
+
+/* Panel de filtros */
+
+
+.oculto {
+  display: none;
+}
+
+#panelFiltros input {
+  width: 100%;
+  margin-top: 3px;
+}
+
+#panelFiltros button {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Layout de filtros + contenido */
+.layout-contenido {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.contenido-principal {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Encabezado */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Tipografía de títulos */
+h1, h2 {
+  color: #2c3e50;
+}
+
+/* Botones primarios y secundarios */
+.btn-primario,
+.btn-secundario {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn-primario:hover,
+.btn-secundario:hover {
+  background-color: #34495e;
+}
+
+/* Botones de acción */
+.btn-editar {
+  background-color: #f39c12;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+}
+.btn-eliminar {
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-left: 6px;
+}
+.btn-editar:hover {
+  background-color: #e67e22;
+}
+
+/* Formulario */
+.formulario {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,.1);
+  margin-bottom: 30px;
+}
+
+.grupo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.grupo label {
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.grupo input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  max-width: 30%;
+}
+
+/* Tabla */
+.tabla-contenedor {
+  overflow-x: auto;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,.1);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+th {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Botones adicionales */
+.botonera {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.botonera button {
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.botonera button.activo {
+  background-color: #2c3e50;
+  color: white;
+  border-color: #34495e;
+}
+.btn-agregar {
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #3498db;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn-agregar:hover {
+  background-color: #2980b9;
+}
+.fila-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: flex-start;
+  margin: 10px;
+}
+/* Fondo oscuro detrás del panel */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+.overlay.activo {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Panel lateral deslizable */
+.panel-filtros {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 280px;
+  height: 100%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 999;
+  overflow-y: auto;
+  border-right: 1px solid #ccc;
+}
+
+/* Panel activo (visible) */
+.panel-filtros.activo {
+  transform: translateX(0);
+}
+
+/* Botón de cerrar dentro del panel */
+.btn-cerrar-filtros {
+  background: none;
+  border: none;
+  font-size: 22px;
+  float: right;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+/* Panel lateral derecho: formulario */
+.formulario-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 999;
+  overflow-y: auto;
+}
+
+/* Activo (visible) */
+.formulario-panel.activo {
+  transform: translateX(0);
+}
+
+/* Botón de cerrar */
+.btn-cerrar-formulario {
+  background: none;
+  border: none;
+  font-size: 22px;
+  float: right;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Fondo oscuro para formulario */
+#overlayRegistro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+#overlayRegistro.activo {
+  opacity: 1;
+  visibility: visible;
+}
+/* Fijar botón de cerrar del formulario y filtros en esquina superior */
+.btn-cerrar-formulario,
+.btn-cerrar-filtros {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1001;
+  background-color: transparent;
+  color: #333;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+}
+.overlay,
+#overlayRegistro {
+  backdrop-filter: blur(3px); /* desenfoque sutil */
+  -webkit-backdrop-filter: blur(3px); /* soporte para Safari */
+}
