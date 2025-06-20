@@ -56,11 +56,16 @@ body {
 /* Encabezado */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between ;
   align-items: center;
   margin-bottom: 30px;
+  
 }
 
+.header__botones {
+  display: flex;
+  gap: 10px;
+}
 /* Tipografía de títulos */
 h1, h2 {
   color: #2c3e50;

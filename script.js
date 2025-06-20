@@ -669,8 +669,7 @@ btnAplicarFiltros.addEventListener('click', () => {
   const precioMax = filtroPrecioMax.value ? parseFloat(filtroPrecioMax.value) : null;
 
   const filtrados = registros.filter(reg => {
-    const fechaTexto = reg.fechaHora.split(',')[0].trim(); // "19/06/2025"
-    const fecha = parseFecha(fechaTexto); // Date
+    const fecha = new Date(reg.fechaHora); 
 
     return (
       (!placa || reg.placa.toLowerCase().includes(placa)) &&
